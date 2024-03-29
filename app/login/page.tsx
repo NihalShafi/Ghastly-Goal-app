@@ -14,6 +14,8 @@ export default function Login({
 
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
+    console.log(password);
+    
     const supabase = createClient();
 
     const { error } = await supabase.auth.signInWithPassword({
@@ -25,7 +27,7 @@ export default function Login({
       return redirect("/login?message=Could not authenticate user");
     }
 
-    return redirect("/protected");
+    return redirect("/");
   };
 
   const signUp = async (formData: FormData) => {
@@ -80,7 +82,7 @@ export default function Login({
           Email
         </label>
         <input
-          className="rounded-md px-4 py-2 bg-inherit border mb-6"
+          className="rounded-md text-white px-4 py-2 bg-inherit border mb-6"
           name="email"
           placeholder="you@example.com"
           required
@@ -89,7 +91,7 @@ export default function Login({
           Password
         </label>
         <input
-          className="rounded-md px-4 py-2  bg-inherit border mb-6"
+          className="rounded-md px-4 py-2 text-white bg-inherit border mb-6"
           type="password"
           name="password"
           placeholder="••••••••"
@@ -104,13 +106,13 @@ export default function Login({
         </SubmitButton>
         <SubmitButton
           formAction={signUp}
-          className="border text-white border rounded-md px-4 py-2 text-foreground mb-2"
+          className="border text-white rounded-md px-4 py-2 text-foreground mb-2"
           pendingText="Signing Up..."
         >
           Sign Up
         </SubmitButton>
         {searchParams?.message && (
-          <p className="mt-4 p-4 bg-foreground/10 text-foreground text-center">
+          <p className="mt-4 p-4 bg-foreground/10 text-white text-center">
             {searchParams.message}
           </p>
         )}

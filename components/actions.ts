@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 
+
 export async function dlt(id:string ) {
     const supabase = createClient();
       const { error } = await supabase.from("note").delete().eq('id', id);

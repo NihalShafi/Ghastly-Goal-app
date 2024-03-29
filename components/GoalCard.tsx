@@ -14,12 +14,6 @@ async function GoalCard({ data }: { data: string }) {
     .from("note")
     .select()
     .eq("user_id", data);
-  const dltGoal = async (formData: FormData) => {
-    "use server";
-    const id = formData.get("fname") as string;
-    const supabase = createClient();
-    const { error } = await supabase.from("note").delete().eq("id", id);
-  };
   return (
     <section className="flex  p-3">
       <div className=" flex  w-full justify-center items-center ">

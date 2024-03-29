@@ -4,8 +4,8 @@ import React, { ComponentProps } from 'react'
 import { Button } from '../ui/button'
 import { dlt } from '../actions'
 import { toast } from 'react-toastify'
-type Props = ComponentProps<'button'>
-function ButtonDlt({id } : {id:string}) {
+
+function ButtonDlt({id} : {id:string}) {
 const dltgoal = async () =>{
    try{
     await dlt(id)
