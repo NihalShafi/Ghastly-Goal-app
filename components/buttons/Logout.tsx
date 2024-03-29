@@ -3,6 +3,7 @@ import React from 'react'
 import { Button } from '../ui/button'
 import { logout } from '../actions'
 import { toast } from 'react-toastify'
+import { LogOut } from 'lucide-react'
 
 function Logout() {
    async function logo (){
@@ -14,8 +15,8 @@ function Logout() {
         }
     }
   return (
-    <Button onClick={logo} className='hover:bg-white text-white border-2 hover:text-black  rounded-md'>
-        Log Out
+    <Button onClick={logo} size={'sm'} className='hover:bg-red-600 text-white  hover:text-black  rounded-md'>
+        <LogOut size={13}/>
     </Button>
   )
 }

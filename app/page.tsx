@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { createClient } from "@/utils/supabase/server";
 
 import { revalidatePath } from "next/cache";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 
 async function page() {
@@ -20,7 +21,7 @@ async function page() {
     console.log(user);
 
     console.log("Piece of cyka");
-    // redirect("/login");
+    redirect("/login");
   }
 
   const addgoal = async (formdata: FormData) => {
@@ -38,11 +39,19 @@ async function page() {
   };
   return (
     <section className="w-full  bg-black">
-      <header className=" flex px-4 py-2 sticky top-0 justify-between items-center backdrop-blur-md bg-white/20  h-14">
-      <h1 className="text-white  bold ">
-            {metadata?.display_name}
-          </h1>
-        <Logout />
+      <header className=" flex px-4 py-8 sticky top-0 justify-between items-center backdrop-blur-md bg-white/20  h-10">
+        <div>
+          <h1 className="text-white  bold ">{metadata?.display_name}</h1>
+        </div>
+        <div className="flex items-center "> 
+          <Link href="/updateuser">
+            <Button className="mr-3 bg-white text-black hover:text-white" size={'sm'}>
+              Change Name?
+            </Button>
+          </Link>
+
+          <Logout />
+        </div>
       </header>
       <div className="flex w-full items-center justify-center h-48">
         {metadata?.display_name ? (
