@@ -27,32 +27,27 @@ export function DialogDemo({ id }: { id: string }) {
     }
   };
   return (
-
-    
-    <Dialog >
+    <Dialog>
       <DialogTrigger asChild>
-        <Button  className="bg-green-600 hover:bg-green-500 active:bg-green-700">
-          <Edit size={15}/>
+        <Button className="bg-green-600 hover:bg-green-500 active:bg-green-700">
+          <Edit size={15} />
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] backdrop-blur-md bg-white/20 border  ">
         <DialogHeader>
           <DialogTitle className="text-white">Edit Goal</DialogTitle>
           <DialogDescription className="text-white">
-            Make changes to your goal here. Click save when you're done.
+            Make changes to your goal here. Click save when you &apos; re done.
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <form action={updateGoal}>
             <div className=" flex justify-center items-center gap-4">
-            
               <Input id="name" name="name" className="w-1/2" />
               <DialogFooter>
-              <Button type="submit">Save changes</Button>
-            </DialogFooter>
+                <Button type="submit">Save changes</Button>
+              </DialogFooter>
             </div>
-
-           
           </form>
         </div>
       </DialogContent>

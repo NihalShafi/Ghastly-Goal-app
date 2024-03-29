@@ -6,23 +6,14 @@ import { Button } from "./ui/button";
 import { Edit, EllipsisVertical, Trash2 } from "lucide-react";
 import ButtonDlt from "./buttons/ButtonDlt";
 import { DialogDemo } from "./buttons/Update";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { User } from "@supabase/supabase-js";
 
-type Props = ComponentProps<"button"> & {
-  user?: string;
-};
-async function GoalCard({data}:{data:string}) {
+async function GoalCard({ data }: { data: string }) {
   const supabase = createClient();
 
-  let { data: note, error } = await supabase.from("note").select().eq("user_id",data);
+  let { data: note, error } = await supabase
+    .from("note")
+    .select()
+    .eq("user_id", data);
   const dltGoal = async (formData: FormData) => {
     "use server";
     const id = formData.get("fname") as string;
@@ -47,9 +38,8 @@ async function GoalCard({data}:{data:string}) {
                   </article>
                 </div>
                 <div className="flex  justify-end gap-2 mt-5 w-full">
-                <ButtonDlt id={e.id} />
-                <DialogDemo id={e.id} />
-                  
+                  <ButtonDlt id={e.id} />
+                  <DialogDemo id={e.id} />
                 </div>
               </div>
             ))}
